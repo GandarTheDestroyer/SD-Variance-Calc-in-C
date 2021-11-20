@@ -1,0 +1,71 @@
+/*C Program Requirement */
+/* Submitted by: Boreros & Buenagua Bs-AsE 3A */
+/*Computer Fundamentals and Programming 5-460*/
+#include <stdio.h> 
+#include <stdlib.h>
+#include <math.h>
+int main() { 
+ int i, n, *data, sum=0, pors;
+ double *column, *columna;
+ float mean, suma=0, std, var, m;
+ printf("\nC Program Requirement\nSubmitted by: Boreros, Razzelle Ann and Buenagua, Renzo 
+Rafael\n\n");
+printf("\nStandard Deviation and Variance Calculator for a Population or Sample for Ungrouped 
+Data\n"); 
+printf("\nWelcome! Choose the scope of your data:\n 1-Population\n 2-Sample\n\nEnter the 
+number of your choice: ");
+scanf("%d", &pors);
+while(pors!=1&&pors!=2){
+printf("Invalid input!\n\nEnter the number of your choice: ");
+scanf("%d", &pors);
+}
+printf("\nEnter total number of values: ");
+scanf("%d", &n);
+data=(int*)malloc(sizeof(int)*n);
+ column=(double*)malloc(sizeof(double)*n);
+ columna=(double*)malloc(sizeof(double)*n);
+ for(i=0;i<n;i++){ 
+ printf("Enter value %d: ", i+1);
+ scanf("%d",&data[i]); 
+ } 
+ 
+ printf("____________________________________________________\n\t\tCalculations");
+ printf("\n\nValues of x: \n\t"); 
+ for(i=0;i<n;i++){ 
+ printf("%8d",data[i]); 
+ } 
+ 
+ for(i=0;i<n;i++){ 
+ sum=sum+data[i]; 
+ } 
+ 
+ m=n;
+ mean=sum/m;
+ printf("\nSum: %d", sum);
+ printf("\nMean: %.4f", mean);
+ printf("\n\n\t\t Table\n");
+ printf("\n x\t\tx-mean\t\t(x-mean)^2"); 
+ printf("\n____________________________________________________");
+ for(i=0;i<n;++i){ 
+ column[i]=data[i]-mean;
+ columna[i]=column[i]*column[i];
+ printf("\n %3d\t\t%.2f\t\t%.2f",data[i], column[i], columna[i]); 
+ } 
+ 
+ for(i=0;i<n;i++){ 
+ suma=suma+columna[i]; 
+ } 
+ printf("\n\t\t\t\tSum of (x-mean)^2: %.2f", suma);
+ 
+ if(pors==1){
+ var=suma/m;
+ std=sqrt(var); 
+} else {
+var=suma/(m-1);
+ std=sqrt(var);
+}
+ printf("\n\nVariance: %f", var);
+ printf("\n\nStandard Deviation: %f\n", std);
+ printf("\n____________________________________________________");
+ return 0; 
+}
