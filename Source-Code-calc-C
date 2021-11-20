@@ -1,6 +1,6 @@
-/*C Program Requirement */
-/* Submitted by: Boreros & Buenagua Bs-AsE 3A */
-/*Computer Fundamentals and Programming 5-460*/
+
+/* by Boreros & Buenagua Bs-AsE 3A */
+
 #include <stdio.h> 
 #include <stdlib.h>
 #include <math.h>
